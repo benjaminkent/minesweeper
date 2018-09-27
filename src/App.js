@@ -33,6 +33,11 @@ class App extends Component {
   }
 
   render() {
+    // let squares = this.state.board.map(square => {
+    //   return <Square
+    //   value=
+    // })
+
     return (
       <div className="main">
         <header>
