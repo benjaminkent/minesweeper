@@ -7,7 +7,7 @@ body {
   align-items: center;
 }
 
-h1{
+h1 {
   margin: 30px 0 50px 0;
 }
 
@@ -37,7 +37,9 @@ td {
 }
 
 button {
-  font-size: 1.5rem;
-  text-align: center;
+  width: 30px;
+  height: 30px;
   margin: 0 5px;
+  background-image: url(./images/smile.gif);
+  background-size: cover;
 }
