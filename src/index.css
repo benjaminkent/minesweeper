@@ -5,6 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #b3b3b3;
 }
 
 h1 {
@@ -13,6 +14,8 @@ h1 {
 
 h2 {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 select {
@@ -23,17 +26,12 @@ th {
   display: flex;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 td {
-  border: 1px solid gray;
-  width: 15px;
-  height: 15px;
+  border: 1px solid #4d4d4d;
+  width: 20px;
+  height: 20px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 button {
@@ -42,4 +40,11 @@ button {
   margin: 0 5px;
   background-image: url(./images/smile.gif);
   background-size: cover;
+  outline: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

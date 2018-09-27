@@ -11,11 +11,11 @@ class App extends Component {
       id: 1,
       board: [
         [" ", " ", " ", " ", " ", " ", " ", " "],
-        [" ", " ", "1", "2", "1", "F", " ", " "],
-        [" ", "1", "_", "_", "_", "2", " ", " "],
-        [" ", "1", "_", "_", "_", "1", " ", " "],
-        [" ", " ", "1", "_", "_", "2", " ", " "],
-        [" ", " ", " ", "1", "1", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " "],
         [" ", " ", " ", " ", " ", " ", " ", " "],
         [" ", " ", " ", " ", " ", " ", " ", " "]
       ],
@@ -25,21 +25,16 @@ class App extends Component {
   }
 
   _sampleGame = event => {
-    console.log("clicked")
     axios
-      .get("https://minesweeper-api.herokuapp.com/#game-api-get/games/1")
+      .get("https://minesweeper-api.herokuapp.com/games/3")
       .then(response => {
-        this.setState = response.data
+        this.setState(response.data)
       })
   }
 
   render() {
-    // let squareValue = this.state.board.map(element => {
-    //   return <Square />
-    // })
-
     return (
-      <div>
+      <div className="main">
         <header>
           <h1>Minesweeper</h1>
         </header>
