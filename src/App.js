@@ -28,7 +28,7 @@ class App extends Component {
     axios
       .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 0 })
       .then(response => {
-        console.log(response.data)
+        this.setState(response.data)
       })
   }
 
@@ -36,7 +36,7 @@ class App extends Component {
     axios
       .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 1 })
       .then(response => {
-        console.log(response.data)
+        this.setState(response.data)
       })
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
     axios
       .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 2 })
       .then(response => {
-        console.log(response.data)
+        this.setState(response.data)
       })
   }
 
@@ -53,12 +53,35 @@ class App extends Component {
       .get("https://minesweeper-api.herokuapp.com/games/3")
       .then(response => {
         this.setState(response.data)
-        console.log(response.data)
       })
   }
 
   render() {
-    // let rowOne = this.state.board[0].map(square => {})
+    let rowOne = this.state.board[0].map(square => {
+      return <Square value={square} />
+    })
+
+    let rowTwo = this.state.board[1].map(square => {
+      return <Square value={square} />
+    })
+    let rowThree = this.state.board[2].map(square => {
+      return <Square value={square} />
+    })
+    let rowFour = this.state.board[3].map(square => {
+      return <Square value={square} />
+    })
+    let rowFive = this.state.board[4].map(square => {
+      return <Square value={square} />
+    })
+    let rowSix = this.state.board[5].map(square => {
+      return <Square value={square} />
+    })
+    let rowSeven = this.state.board[6].map(square => {
+      return <Square value={square} />
+    })
+    let rowEight = this.state.board[7].map(square => {
+      return <Square value={square} />
+    })
 
     return (
       <div className="main">
@@ -81,86 +104,14 @@ class App extends Component {
 
           <table>
             <tbody>
-              <tr>
-                <Square value={this.state.board[0][0]} />
-                <Square value={this.state.board[0][1]} />
-                <Square value={this.state.board[0][2]} />
-                <Square value={this.state.board[0][3]} />
-                <Square value={this.state.board[0][4]} />
-                <Square value={this.state.board[0][5]} />
-                <Square value={this.state.board[0][6]} />
-                <Square value={this.state.board[0][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[1][0]} />
-                <Square value={this.state.board[1][1]} />
-                <Square value={this.state.board[1][2]} />
-                <Square value={this.state.board[1][3]} />
-                <Square value={this.state.board[1][4]} />
-                <Square value={this.state.board[1][5]} />
-                <Square value={this.state.board[1][6]} />
-                <Square value={this.state.board[1][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[2][0]} />
-                <Square value={this.state.board[2][1]} />
-                <Square value={this.state.board[2][2]} />
-                <Square value={this.state.board[2][3]} />
-                <Square value={this.state.board[2][4]} />
-                <Square value={this.state.board[2][5]} />
-                <Square value={this.state.board[2][6]} />
-                <Square value={this.state.board[2][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[3][0]} />
-                <Square value={this.state.board[3][1]} />
-                <Square value={this.state.board[3][2]} />
-                <Square value={this.state.board[3][3]} />
-                <Square value={this.state.board[3][4]} />
-                <Square value={this.state.board[3][5]} />
-                <Square value={this.state.board[3][6]} />
-                <Square value={this.state.board[3][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[4][0]} />
-                <Square value={this.state.board[4][1]} />
-                <Square value={this.state.board[4][2]} />
-                <Square value={this.state.board[4][3]} />
-                <Square value={this.state.board[4][4]} />
-                <Square value={this.state.board[4][5]} />
-                <Square value={this.state.board[4][6]} />
-                <Square value={this.state.board[4][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[5][0]} />
-                <Square value={this.state.board[5][1]} />
-                <Square value={this.state.board[5][2]} />
-                <Square value={this.state.board[5][3]} />
-                <Square value={this.state.board[5][4]} />
-                <Square value={this.state.board[5][5]} />
-                <Square value={this.state.board[5][6]} />
-                <Square value={this.state.board[5][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[6][0]} />
-                <Square value={this.state.board[6][1]} />
-                <Square value={this.state.board[6][2]} />
-                <Square value={this.state.board[6][3]} />
-                <Square value={this.state.board[6][4]} />
-                <Square value={this.state.board[6][5]} />
-                <Square value={this.state.board[6][6]} />
-                <Square value={this.state.board[6][7]} />
-              </tr>
-              <tr>
-                <Square value={this.state.board[7][0]} />
-                <Square value={this.state.board[7][1]} />
-                <Square value={this.state.board[7][2]} />
-                <Square value={this.state.board[7][3]} />
-                <Square value={this.state.board[7][4]} />
-                <Square value={this.state.board[7][5]} />
-                <Square value={this.state.board[7][6]} />
-                <Square value={this.state.board[7][7]} />
-              </tr>
+              <tr>{rowOne}</tr>
+              <tr>{rowTwo}</tr>
+              <tr>{rowThree}</tr>
+              <tr>{rowFour}</tr>
+              <tr>{rowFive}</tr>
+              <tr>{rowSix}</tr>
+              <tr>{rowSeven}</tr>
+              <tr>{rowEight}</tr>
             </tbody>
           </table>
         </main>
