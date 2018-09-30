@@ -2,11 +2,12 @@ import React, { Component } from "react"
 
 class Square extends Component {
   _click = event => {
-    // this.props._playerLeftClick(this.props.position)
+    console.log(this.props.position)
   }
 
   _rightClick = event => {
-    // this.props._playerRightClick(this.props.position)
+    console.log(this.props.position)
+    event.preventDefault()
   }
 
   render() {

@@ -57,28 +57,27 @@ class App extends Component {
   }
 
   _playerLeftClick = event => {
-    axios
-      .post("https://minesweeper-api.herokuapp.com/games/{id}/check", {
-        id: 1,
-        row: 1,
-        col: 1
-      })
-      .then(response => {
-        this.setState(response.data)
-      })
+    // axios
+    //   .post("https://minesweeper-api.herokuapp.com/games/{id}/check", {
+    //     id: 1,
+    //     row: 1,
+    //     col: 1
+    //   })
+    //   .then(response => {
+    //     this.setState(response.data)
+    //   })
   }
 
   _playerRightClick = event => {
-    axios
-      .post("https://minesweeper-api.herokuapp.com/games/{id}/flag", {
-        id: 1,
-        row: 1,
-        col: 1
-      })
-      .then(response => {
-        this.setState(response.data)
-      })
-    event.preventDefault()
+    // axios
+    //   .post("https://minesweeper-api.herokuapp.com/games/{id}/flag", {
+    //     id: 1,
+    //     row: 1,
+    //     col: 1
+    //   })
+    //   .then(response => {
+    //     this.setState(response.data)
+    //   })
   }
 
   render() {
