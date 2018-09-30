@@ -56,31 +56,39 @@ class App extends Component {
       })
   }
 
+  // _playerLeftClick = event => {
+  //   axios.post(
+  //     "https://minesweeper-api.herokuapp.com/games{id}/check",
+  //     { id: { id } },
+  //     row
+  //   )
+  // }
+
   render() {
-    let rowOne = this.state.board[0].map(square => {
-      return <Square value={square} />
+    let rowOne = this.state.board[0].map((square, index) => {
+      return <Square position={index} value={square} />
     })
 
-    let rowTwo = this.state.board[1].map(square => {
-      return <Square value={square} />
+    let rowTwo = this.state.board[1].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowThree = this.state.board[2].map(square => {
-      return <Square value={square} />
+    let rowThree = this.state.board[2].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowFour = this.state.board[3].map(square => {
-      return <Square value={square} />
+    let rowFour = this.state.board[3].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowFive = this.state.board[4].map(square => {
-      return <Square value={square} />
+    let rowFive = this.state.board[4].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowSix = this.state.board[5].map(square => {
-      return <Square value={square} />
+    let rowSix = this.state.board[5].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowSeven = this.state.board[6].map(square => {
-      return <Square value={square} />
+    let rowSeven = this.state.board[6].map((square, index) => {
+      return <Square position={index} value={square} />
     })
-    let rowEight = this.state.board[7].map(square => {
-      return <Square value={square} />
+    let rowEight = this.state.board[7].map((square, index) => {
+      return <Square position={index} value={square} />
     })
 
     return (
