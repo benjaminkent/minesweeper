@@ -26,6 +26,10 @@ th {
   display: flex;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 td {
   border: 1px solid #4d4d4d;
   width: 20px;
@@ -34,7 +38,7 @@ td {
   color: #4d4d4d;
 }
 
-button {
+.new-game {
   width: 30px;
   height: 30px;
   margin: 0 5px;
@@ -47,4 +51,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.diff-select {
+  margin-bottom: 50px;
 }

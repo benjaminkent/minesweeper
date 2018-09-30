@@ -24,19 +24,41 @@ class App extends Component {
     }
   }
 
+  _easyGame = event => {
+    axios
+      .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 0 })
+      .then(response => {
+        console.log(response.data)
+      })
+  }
+
+  _mediumGame = event => {
+    axios
+      .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 1 })
+      .then(response => {
+        console.log(response.data)
+      })
+  }
+
+  _hardGame = event => {
+    axios
+      .post("https://minesweeper-api.herokuapp.com/games", { difficulty: 2 })
+      .then(response => {
+        console.log(response.data)
+      })
+  }
+
   _sampleGame = event => {
     axios
       .get("https://minesweeper-api.herokuapp.com/games/3")
       .then(response => {
         this.setState(response.data)
+        console.log(response.data)
       })
   }
 
   render() {
-    // let squares = this.state.board.map(square => {
-    //   return <Square
-    //   value=
-    // })
+    // let rowOne = this.state.board[0].map(square => {})
 
     return (
       <div className="main">
@@ -44,17 +66,16 @@ class App extends Component {
           <h1>Minesweeper</h1>
         </header>
 
-        <select>
-          <option value="">Choose Difficulty</option>
-          <option value="">Easy</option>
-          <option value="">Medium</option>
-          <option value="">Hard</option>
-        </select>
+        <div className="diff-select">
+          <button onClick={this._easyGame}>Easy</button>
+          <button onClick={this._mediumGame}>Medium</button>
+          <button onClick={this._hardGame}>Hard</button>
+        </div>
 
         <main>
           <h2>
             <span>010</span>
-            <button onClick={this._sampleGame} />
+            <button className="new-game" onClick={this._sampleGame} />
             <span>000</span>
           </h2>
 
