@@ -2,11 +2,11 @@ import React, { Component } from "react"
 
 class Square extends Component {
   _click = event => {
-    console.log(this.props.position)
+    this.props.handleCheck(this.props.row, this.props.column)
   }
 
   _rightClick = event => {
-    console.log(this.props.position)
+    this.props.handleFlag(this.props.row, this.props.column)
     event.preventDefault()
   }
 

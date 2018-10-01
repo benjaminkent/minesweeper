@@ -8,7 +8,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      id: 1,
+      id: 0,
       board: [
         [" ", " ", " ", " ", " ", " ", " ", " "],
         [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -20,7 +20,7 @@ class App extends Component {
         [" ", " ", " ", " ", " ", " ", " ", " "]
       ],
       state: "playing",
-      mines: 9
+      mines: 0
     }
   }
 
@@ -48,69 +48,146 @@ class App extends Component {
       })
   }
 
-  _sampleGame = event => {
+  // _sampleGame = event => {
+  //   axios
+  //     .get("https://minesweeper-api.herokuapp.com/games/3")
+  //     .then(response => {
+  //       this.setState(response.data)
+  //     })
+  // }
+
+  handleCheck = (row, column) => {
+    if (this.state.id === 0) {
+      return
+    }
     axios
-      .get("https://minesweeper-api.herokuapp.com/games/3")
+      .post(
+        `https://minesweeper-api.herokuapp.com/games/${this.state.id}/check`,
+        { row: row, col: column }
+      )
       .then(response => {
         this.setState(response.data)
       })
   }
 
-  _playerLeftClick = event => {
-    // axios
-    //   .post("https://minesweeper-api.herokuapp.com/games/{id}/check", {
-    //     id: 1,
-    //     row: 1,
-    //     col: 1
-    //   })
-    //   .then(response => {
-    //     this.setState(response.data)
-    //   })
-  }
-
-  _playerRightClick = event => {
-    // axios
-    //   .post("https://minesweeper-api.herokuapp.com/games/{id}/flag", {
-    //     id: 1,
-    //     row: 1,
-    //     col: 1
-    //   })
-    //   .then(response => {
-    //     this.setState(response.data)
-    //   })
+  handleFlag = (row, column) => {
+    if (this.state.id === 0) {
+      return
+    }
+    axios
+      .post(
+        `https://minesweeper-api.herokuapp.com/games/${this.state.id}/flag`,
+        { row: row, col: column }
+      )
+      .then(response => {
+        this.setState(response.data)
+      })
   }
 
   render() {
+    //this.state.board.map((row, rowIndex) => {
+    //   return (
+    //     <tr>with everything in it</tr>
+    //   )
+    // })
+
+    let gameBoard = this.state.board.map((row, rowIndex) => {})
+
     let rowOne = this.state.board[0].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={0}
+          column={index}
+          value={square}
+        />
+      )
     })
 
     let rowTwo = this.state.board[1].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={1}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowThree = this.state.board[2].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={2}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowFour = this.state.board[3].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={3}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowFive = this.state.board[4].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={4}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowSix = this.state.board[5].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={5}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowSeven = this.state.board[6].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={6}
+          column={index}
+          value={square}
+        />
+      )
     })
     let rowEight = this.state.board[7].map((square, index) => {
-      return <Square position={index} value={square} />
+      return (
+        <Square
+          handleFlag={this.handleFlag}
+          handleCheck={this.handleCheck}
+          row={7}
+          column={index}
+          value={square}
+        />
+      )
     })
 
     return (
       <div className="main">
         <header>
           <h1>Minesweeper</h1>
+          <h2>Game #{this.state.id}</h2>
         </header>
 
         <div className="diff-select">
@@ -120,11 +197,11 @@ class App extends Component {
         </div>
 
         <main>
-          <h2>
-            <span>010</span>
-            <button className="new-game" onClick={this._sampleGame} />
+          <h3>
+            <span>{this.state.mines}</span>
+            <button className="new-game" />
             <span>000</span>
-          </h2>
+          </h3>
 
           <table>
             <tbody>
