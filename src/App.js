@@ -48,14 +48,6 @@ class App extends Component {
       })
   }
 
-  // _sampleGame = event => {
-  //   axios
-  //     .get("https://minesweeper-api.herokuapp.com/games/3")
-  //     .then(response => {
-  //       this.setState(response.data)
-  //     })
-  // }
-
   handleCheck = (row, column) => {
     if (this.state.id === 0) {
       return
@@ -91,13 +83,21 @@ class App extends Component {
     return <p>Game #{this.state.id}</p>
   }
 
+  gameStatus = () => {
+    if (this.state.id === 0) {
+      return "Ready to Play"
+    }
+    return `Status: ${this.state.state}`
+  }
+
   render() {
     let gameBoard = this.state.board.map((row, rowIndex) => {
       return (
-        <tr>
+        <tr key={rowIndex}>
           {row.map((value, columnIndex) => {
             return (
               <Square
+                key={columnIndex}
                 handleFlag={this.handleFlag}
                 handleCheck={this.handleCheck}
                 row={rowIndex}
@@ -124,10 +124,11 @@ class App extends Component {
         </div>
 
         <main>
+          <div>
+            <p className="status">{this.gameStatus()}</p>
+          </div>
           <h3>
-            <span>{this.state.mines}</span>
-            <button className="new-game" />
-            <span>000</span>
+            <span>Mines: {this.state.mines}</span>
           </h3>
 
           <table>
