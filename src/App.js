@@ -84,102 +84,29 @@ class App extends Component {
       })
   }
 
+  gameMessage = () => {
+    if (this.state.id === 0) {
+      return <p>Choose Difficulty to Start a Game</p>
+    }
+    return <p>Game #{this.state.id}</p>
+  }
+
   render() {
-    //this.state.board.map((row, rowIndex) => {
-    //   return (
-    //     <tr>with everything in it</tr>
-    //   )
-    // })
-
-    let gameBoard = this.state.board.map((row, rowIndex) => {})
-
-    let rowOne = this.state.board[0].map((square, index) => {
+    let gameBoard = this.state.board.map((row, rowIndex) => {
       return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={0}
-          column={index}
-          value={square}
-        />
-      )
-    })
-
-    let rowTwo = this.state.board[1].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={1}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowThree = this.state.board[2].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={2}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowFour = this.state.board[3].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={3}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowFive = this.state.board[4].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={4}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowSix = this.state.board[5].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={5}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowSeven = this.state.board[6].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={6}
-          column={index}
-          value={square}
-        />
-      )
-    })
-    let rowEight = this.state.board[7].map((square, index) => {
-      return (
-        <Square
-          handleFlag={this.handleFlag}
-          handleCheck={this.handleCheck}
-          row={7}
-          column={index}
-          value={square}
-        />
+        <tr>
+          {row.map((value, columnIndex) => {
+            return (
+              <Square
+                handleFlag={this.handleFlag}
+                handleCheck={this.handleCheck}
+                row={rowIndex}
+                column={columnIndex}
+                value={value}
+              />
+            )
+          })}
+        </tr>
       )
     })
 
@@ -187,7 +114,7 @@ class App extends Component {
       <div className="main">
         <header>
           <h1>Minesweeper</h1>
-          <h2>Game #{this.state.id}</h2>
+          <h2>{this.gameMessage()}</h2>
         </header>
 
         <div className="diff-select">
@@ -204,16 +131,7 @@ class App extends Component {
           </h3>
 
           <table>
-            <tbody>
-              <tr>{rowOne}</tr>
-              <tr>{rowTwo}</tr>
-              <tr>{rowThree}</tr>
-              <tr>{rowFour}</tr>
-              <tr>{rowFive}</tr>
-              <tr>{rowSix}</tr>
-              <tr>{rowSeven}</tr>
-              <tr>{rowEight}</tr>
-            </tbody>
+            <tbody>{gameBoard}</tbody>
           </table>
         </main>
       </div>

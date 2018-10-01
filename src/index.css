@@ -24,10 +24,6 @@ h3 {
   font-size: 1.5rem;
 }
 
-select {
-  margin-bottom: 50px;
-}
-
 th {
   display: flex;
 }
@@ -60,5 +56,5 @@ td {
 }
 
 .diff-select {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
