@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 
 class Square extends Component {
-  _click = event => {
+  state = {
+    checkedValues: [
+      "*", "@", "_", 1, 2, 3, 4, 5, 6, 7, 8
+    ]
+  }
+  _click = () => {
     this.props.handleCheck(this.props.row, this.props.column)
   }
 
@@ -16,31 +21,21 @@ class Square extends Component {
       output = "💣"
     }
     if (this.props.value === "F") {
-      output = "🇺🇸"
+      output = "🤨"
     }
     if (this.props.value === "@") {
-      output = "🇺🇸"
+      output = "😁"
     }
     if (this.props.value === "_") {
       output = ""
     }
 
     let squareClass = "not-checked"
-    if (
-      this.props.value === "*" ||
-      this.props.value === "@" ||
-      this.props.value === "_" ||
-      this.props.value === 1 ||
-      this.props.value === 2 ||
-      this.props.value === 3 ||
-      this.props.value === 4 ||
-      this.props.value === 5 ||
-      this.props.value === 6 ||
-      this.props.value === 7 ||
-      this.props.value === 8
-    ) {
-      squareClass = "checked"
-    }
+    this.state.checkedValues.forEach(value => {
+      if (this.props.value === value) {
+        squareClass = "checked"
+      }
+    })
 
     return (
       <td

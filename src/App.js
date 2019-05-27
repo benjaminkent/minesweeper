@@ -130,7 +130,6 @@ class App extends Component {
           <h3>
             <span>Mines: {this.state.mines}</span>
           </h3>
-
           <table>
             <tbody>{gameBoard}</tbody>
           </table>
